@@ -2,7 +2,19 @@
 
 An E-Commerce Marketplace for buying and selling goods.
 
+
 ---
+
+
+Presented By HSH Groups;
+
+M HUNAIN RIASAT   FA24-BSE-083
+
+SAAD FAISAL       FA24-BSE-104
+
+HANNAN NAJEEB     FA24-BSE-080
+
+
 
 ## 📚 Java Marketplace Project
 A simple object-oriented, console-based marketplace application where users can register as buyers or sellers, add products, place orders, and manage marketplace data.
