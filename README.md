@@ -1,6 +1,6 @@
 # 🛒 MARKETPLACE-III
 
-An E-Commerce Marketplace for buying and selling goods.
+An OOP Based E-Commerce Marketplace for buying and selling goods.
 
 
 ---
@@ -145,9 +145,13 @@ MARKETPLACE-III/
 
 ## 📞 Contact
 For questions or issues, contact:  
+
 📧 **Hunain Riasat** — [hunainriasat@gmail.com]
+
 📧 **Saad faisal** — [fa24-bse-104@cuilahore.edu.pk]
+
 📧 **Hannan Najeeb** — [fa24-bse-080@cuilahore.edu.pk]
+
 
 ---
 
