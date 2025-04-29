@@ -62,11 +62,11 @@ public class Payment implements Serializable {
     // File handling methods
     public void saveToFile() {
         try {
-            File dir = new File("payments");
+            File dir = new File("data/payments");
             if (!dir.exists()) {
                 dir.mkdir();
             }
-            FileOutputStream fileOut = new FileOutputStream("payments/" + paymentId + ".dat");
+            FileOutputStream fileOut = new FileOutputStream("data/payments/" + paymentId + ".dat");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
             out.close();
@@ -79,7 +79,7 @@ public class Payment implements Serializable {
     public static Payment loadFromFile(String paymentId) {
         Payment payment = null;
         try {
-            FileInputStream fileIn = new FileInputStream("payments/" + paymentId + ".dat");
+            FileInputStream fileIn = new FileInputStream("data/payments/" + paymentId + ".dat");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             payment = (Payment) in.readObject();
             in.close();

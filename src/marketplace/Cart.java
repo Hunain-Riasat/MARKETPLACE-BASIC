@@ -95,11 +95,11 @@ public class Cart implements Serializable {
     // File handling methods
     public void saveToFile() {
         try {
-            File dir = new File("carts");
+            File dir = new File("data/carts");
             if (!dir.exists()) {
                 dir.mkdir();
             }
-            FileOutputStream fileOut = new FileOutputStream("carts/" + userId + ".dat");
+            FileOutputStream fileOut = new FileOutputStream("data/carts/" + userId + ".dat");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
             out.close();
@@ -112,7 +112,7 @@ public class Cart implements Serializable {
     public static Cart loadFromFile(String userId) {
         Cart cart = null;
         try {
-            FileInputStream fileIn = new FileInputStream("carts/" + userId + ".dat");
+            FileInputStream fileIn = new FileInputStream("data/carts/" + userId + ".dat");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             cart = (Cart) in.readObject();
             in.close();

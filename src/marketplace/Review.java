@@ -50,11 +50,11 @@ public class Review implements Serializable {
     // File handling methods
     public void saveToFile() {
         try {
-            File dir = new File("reviews");
+            File dir = new File("data/reviews");
             if (!dir.exists()) {
                 dir.mkdir();
             }
-            FileOutputStream fileOut = new FileOutputStream("reviews/" + reviewId + ".dat");
+            FileOutputStream fileOut = new FileOutputStream("data/reviews/" + reviewId + ".dat");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
             out.close();
@@ -67,7 +67,7 @@ public class Review implements Serializable {
     public static Review loadFromFile(String reviewId) {
         Review review = null;
         try {
-            FileInputStream fileIn = new FileInputStream("reviews/" + reviewId + ".dat");
+            FileInputStream fileIn = new FileInputStream("data/reviews/" + reviewId + ".dat");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             review = (Review) in.readObject();
             in.close();

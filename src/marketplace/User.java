@@ -56,11 +56,11 @@ public class User implements Serializable {
     // File handling methods
     public void saveToFile() {
         try {
-            File dir = new File("users");
+            File dir = new File("data/users");
             if (!dir.exists()) {
                 dir.mkdir();
             }
-            FileOutputStream fileOut = new FileOutputStream("users/" + userId + ".dat");
+            FileOutputStream fileOut = new FileOutputStream("data/users/" + userId + ".dat");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
             out.close();
@@ -74,7 +74,7 @@ public class User implements Serializable {
     public static User loadFromFile(String userId) {
         User user = null;
         try {
-            FileInputStream fileIn = new FileInputStream("users/" + userId + ".dat");
+            FileInputStream fileIn = new FileInputStream("data/users/" + userId + ".dat");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             user = (User) in.readObject();
             in.close();

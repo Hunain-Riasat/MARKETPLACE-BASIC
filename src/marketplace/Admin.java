@@ -19,7 +19,7 @@ public class Admin extends User {
     
     public void removeBanner(Banner banner) {
         banners.remove(banner);
-        File file = new File("banners/" + banner.getBannerId() + ".dat");
+        File file = new File("data/banners/" + banner.getBannerId() + ".dat");
         if (file.exists()) {
             file.delete();
         }
@@ -36,7 +36,7 @@ public class Admin extends User {
     }
     
     public void removeCategory(Category category) {
-        File file = new File("categories/" + category.getCategoryId() + ".dat");
+        File file = new File("data/categories/" + category.getCategoryId() + ".dat");
         if (file.exists()) {
             file.delete();
         }
@@ -54,11 +54,11 @@ public class Admin extends User {
     @Override
     public void saveToFile() {
         try {
-            File dir = new File("admins");
+            File dir = new File("data/admins");
             if (!dir.exists()) {
                 dir.mkdir();
             }
-            FileOutputStream fileOut = new FileOutputStream("admins/" + getUserId() + ".dat");
+            FileOutputStream fileOut = new FileOutputStream("data/admins/" + getUserId() + ".dat");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
             out.close();
@@ -72,7 +72,7 @@ public class Admin extends User {
     public static Admin loadFromFile(String userId) {
         Admin admin = null;
         try {
-            FileInputStream fileIn = new FileInputStream("admins/" + userId + ".dat");
+            FileInputStream fileIn = new FileInputStream("data/admins/" + userId + ".dat");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             admin = (Admin) in.readObject();
             in.close();

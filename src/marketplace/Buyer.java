@@ -66,11 +66,11 @@ public class Buyer extends User {
     @Override
     public void saveToFile() {
         try {
-            File dir = new File("buyers");
+            File dir = new File("data/buyers");
             if (!dir.exists()) {
                 dir.mkdir();
             }
-            FileOutputStream fileOut = new FileOutputStream("buyers/" + getUserId() + ".dat");
+            FileOutputStream fileOut = new FileOutputStream("data/buyers/" + getUserId() + ".dat");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
             out.close();
@@ -84,7 +84,7 @@ public class Buyer extends User {
     public static Buyer loadFromFile(String userId) {
         Buyer buyer = null;
         try {
-            FileInputStream fileIn = new FileInputStream("buyers/" + userId + ".dat");
+            FileInputStream fileIn = new FileInputStream("data/buyers/" + userId + ".dat");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             buyer = (Buyer) in.readObject();
             in.close();

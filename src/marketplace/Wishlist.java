@@ -54,11 +54,11 @@ public class Wishlist implements Serializable {
     // File handling methods
     public void saveToFile() {
         try {
-            File dir = new File("wishlists");
+            File dir = new File("data/wishlists");
             if (!dir.exists()) {
                 dir.mkdir();
             }
-            FileOutputStream fileOut = new FileOutputStream("wishlists/" + userId + ".dat");
+            FileOutputStream fileOut = new FileOutputStream("data/wishlists/" + userId + ".dat");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
             out.close();
@@ -71,7 +71,7 @@ public class Wishlist implements Serializable {
     public static Wishlist loadFromFile(String userId) {
         Wishlist wishlist = null;
         try {
-            FileInputStream fileIn = new FileInputStream("wishlists/" + userId + ".dat");
+            FileInputStream fileIn = new FileInputStream("data/wishlists/" + userId + ".dat");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             wishlist = (Wishlist) in.readObject();
             in.close();

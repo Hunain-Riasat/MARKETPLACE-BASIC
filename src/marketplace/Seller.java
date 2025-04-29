@@ -34,7 +34,7 @@ public class Seller extends User {
     public void removeProduct(Product product) {
         products.remove(product);
         // Remove product file
-        File file = new File("products/" + product.getProductId() + ".dat");
+        File file = new File("data/products/" + product.getProductId() + ".dat");
         if (file.exists()) {
             file.delete();
         }
@@ -67,11 +67,11 @@ public class Seller extends User {
     @Override
     public void saveToFile() {
         try {
-            File dir = new File("sellers");
+            File dir = new File("data/sellers");
             if (!dir.exists()) {
                 dir.mkdir();
             }
-            FileOutputStream fileOut = new FileOutputStream("sellers/" + getUserId() + ".dat");
+            FileOutputStream fileOut = new FileOutputStream("data/sellers/" + getUserId() + ".dat");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
             out.close();
@@ -85,7 +85,7 @@ public class Seller extends User {
     public static Seller loadFromFile(String userId) {
         Seller seller = null;
         try {
-            FileInputStream fileIn = new FileInputStream("sellers/" + userId + ".dat");
+            FileInputStream fileIn = new FileInputStream("data/sellers/" + userId + ".dat");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             seller = (Seller) in.readObject();
             in.close();

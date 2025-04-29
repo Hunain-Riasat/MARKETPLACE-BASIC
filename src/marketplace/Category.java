@@ -45,11 +45,11 @@ public class Category implements Serializable {
     // File handling methods
     public void saveToFile() {
         try {
-            File dir = new File("categories");
+            File dir = new File("data/categories");
             if (!dir.exists()) {
                 dir.mkdir();
             }
-            FileOutputStream fileOut = new FileOutputStream("categories/" + categoryId + ".dat");
+            FileOutputStream fileOut = new FileOutputStream("data/categories/" + categoryId + ".dat");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
             out.close();
@@ -63,7 +63,7 @@ public class Category implements Serializable {
     public static Category loadFromFile(String categoryId) {
         Category category = null;
         try {
-            FileInputStream fileIn = new FileInputStream("categories/" + categoryId + ".dat");
+            FileInputStream fileIn = new FileInputStream("data/categories/" + categoryId + ".dat");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             category = (Category) in.readObject();
             in.close();
@@ -76,7 +76,7 @@ public class Category implements Serializable {
     
     public static List<Category> loadAllCategories() {
         List<Category> categories = new ArrayList<>();
-        File dir = new File("categories");
+        File dir = new File("data/categories");
         if (dir.exists()) {
             File[] files = dir.listFiles((d, name) -> name.endsWith(".dat"));
             if (files != null) {

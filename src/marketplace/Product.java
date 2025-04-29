@@ -100,11 +100,11 @@ public class Product implements Serializable {
     // File handling methods
     public void saveToFile() {
         try {
-            File dir = new File("products");
+            File dir = new File("data/products");
             if (!dir.exists()) {
                 dir.mkdir();
             }
-            FileOutputStream fileOut = new FileOutputStream("products/" + productId + ".dat");
+            FileOutputStream fileOut = new FileOutputStream("data/products/" + productId + ".dat");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
             out.close();
@@ -118,7 +118,7 @@ public class Product implements Serializable {
     public static Product loadFromFile(String productId) {
         Product product = null;
         try {
-            FileInputStream fileIn = new FileInputStream("products/" + productId + ".dat");
+            FileInputStream fileIn = new FileInputStream("data/products/" + productId + ".dat");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             product = (Product) in.readObject();
             in.close();

@@ -94,11 +94,11 @@ public class Order implements Serializable {
     // File handling methods
     public void saveToFile() {
         try {
-            File dir = new File("orders");
+            File dir = new File("data/orders");
             if (!dir.exists()) {
                 dir.mkdir();
             }
-            FileOutputStream fileOut = new FileOutputStream("orders/" + orderId + ".dat");
+            FileOutputStream fileOut = new FileOutputStream("data/orders/" + orderId + ".dat");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
             out.close();
@@ -111,7 +111,7 @@ public class Order implements Serializable {
     public static Order loadFromFile(String orderId) {
         Order order = null;
         try {
-            FileInputStream fileIn = new FileInputStream("orders/" + orderId + ".dat");
+            FileInputStream fileIn = new FileInputStream("data/orders/" + orderId + ".dat");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             order = (Order) in.readObject();
             in.close();

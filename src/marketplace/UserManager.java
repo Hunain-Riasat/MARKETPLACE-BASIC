@@ -5,16 +5,16 @@ import java.util.List;
 import java.util.UUID;
 
 public class UserManager {
-    private static final String BUYERS_DIR = "buyers";
-    private static final String SELLERS_DIR = "sellers";
-    private static final String ADMINS_DIR = "admins";
+    // Updated: Use data/ subfolders for all directories
+    private static final String BUYERS_DIR = "data/buyers";
+    private static final String SELLERS_DIR = "data/sellers";
+    private static final String ADMINS_DIR = "data/admins";
     
     private static UserManager instance;
-    
     private User currentUser;
     
     private UserManager() {
-        // Create necessary directories
+        // Create necessary directories in data/
         createDirectory(BUYERS_DIR);
         createDirectory(SELLERS_DIR);
         createDirectory(ADMINS_DIR);
@@ -30,7 +30,7 @@ public class UserManager {
     private void createDirectory(String dirName) {
         File dir = new File(dirName);
         if (!dir.exists()) {
-            dir.mkdir();
+            dir.mkdirs();
         }
     }
     

@@ -53,11 +53,11 @@ public class Banner implements Serializable {
     // File handling methods
     public void saveToFile() {
         try {
-            File dir = new File("banners");
+            File dir = new File("data/banners");
             if (!dir.exists()) {
                 dir.mkdir();
             }
-            FileOutputStream fileOut = new FileOutputStream("banners/" + bannerId + ".dat");
+            FileOutputStream fileOut = new FileOutputStream("data/banners/" + bannerId + ".dat");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
             out.close();
@@ -70,7 +70,7 @@ public class Banner implements Serializable {
     public static Banner loadFromFile(String bannerId) {
         Banner banner = null;
         try {
-            FileInputStream fileIn = new FileInputStream("banners/" + bannerId + ".dat");
+            FileInputStream fileIn = new FileInputStream("data/banners/" + bannerId + ".dat");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             banner = (Banner) in.readObject();
             in.close();
@@ -83,7 +83,7 @@ public class Banner implements Serializable {
     
     public static List<Banner> loadActiveBanners() {
         List<Banner> activeBanners = new ArrayList<>();
-        File dir = new File("banners");
+        File dir = new File("data/banners");
         if (dir.exists()) {
             File[] files = dir.listFiles((d, name) -> name.endsWith(".dat"));
             if (files != null) {
