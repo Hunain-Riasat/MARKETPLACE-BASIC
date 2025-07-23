@@ -1,4 +1,4 @@
-# 🛒 MARKETPLACE-III
+# 🛒 MARKETPLACE-BASIC
 
 An OOP Based E-Commerce Marketplace for buying and selling goods.
 
